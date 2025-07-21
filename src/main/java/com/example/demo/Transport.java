@@ -30,7 +30,7 @@ class Car extends Transport {
         this.color = color;
         System.out.printf("""
     \n%s %s is being recolored
-    ....
+    .....
     new color is %s
     
     """, mark, model, this.color);

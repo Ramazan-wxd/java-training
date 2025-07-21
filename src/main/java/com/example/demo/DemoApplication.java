@@ -6,7 +6,7 @@ public class DemoApplication {
 
 		Car MyMustang = new Car("Car", "Red", 8000, "Mustang", "AMV");
 		MyMustang.info();
-		MyMustang.recolor("Blue");
+		MyMustang.recolor("Black");
 		MyMustang.info();
 	}
 
