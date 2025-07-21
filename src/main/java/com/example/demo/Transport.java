@@ -24,7 +24,16 @@ class Car extends Transport {
     }
     public void info(){
         super.info();
-        System.out.println("Car: " + mark + " " + model);
+        System.out.println("Model: " + mark + " " + model);
+    }
+    public void recolor(String color){
+        this.color = color;
+        System.out.printf("""
+    \n%s %s is being recolored
+    ....
+    new color is %s
+    
+    """, mark, model, this.color);
     }
 }
 
