@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static org.apache.coyote.http11.Constants.a;
 
 public class Prostye_Chysla {
-    public static void main(String[] args) {
+    public static void OrdinaryNums(String[] args) {
         int a[] = new int[10];
         for(int i=0; i<10; i++){
             Scanner in = new Scanner(System.in);
