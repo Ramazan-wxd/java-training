@@ -3,7 +3,7 @@ package com.example.demo.training;
 import java.util.Scanner;
 
 public class Anagram {
-    public static void main(String[] args){
+    public static void pain(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("Введите первое слово:");
         String word1 = in.nextLine().toLowerCase();
