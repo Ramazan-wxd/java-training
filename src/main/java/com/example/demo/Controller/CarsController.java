@@ -1,5 +1,5 @@
 package com.example.demo.Controller;
-import com.example.demo.models.Cars;
+import com.example.demo.models.Books;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +10,10 @@ import java.util.List;
 @RequestMapping("/Transport/Cars")
 public class CarsController {
     @GetMapping
-    public List<Cars> showCars(){
+    public List<Books> showCars(){
     return List.of(
-        Cars.builder().id(1).mark("Mercedes").model("Benz").build(),
-        Cars.builder().id(2).mark("Mustand").model("AMV").cost(7000).build()
+            Books.builder().id(1).mark("Mercedes").model("Benz").build(),
+        Books.builder().id(2).mark("Mustand").model("AMV").cost(7000).build()
         );
 
     }

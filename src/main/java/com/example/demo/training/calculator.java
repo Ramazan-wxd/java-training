@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.training;
 import java.util.Scanner;
 
 public class calculator {
