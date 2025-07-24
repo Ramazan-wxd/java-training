@@ -1,7 +1,7 @@
-package com.example.demo.training;
+package demo.training;
 
 public class ArrayMax {
-    public static void arrayMax() {
+    public static void main(String[] args) {
 
         int[] a = {7, 6, 3, 8, -7, 45, 422, 86775, 4566};
         int max = a[0];

@@ -1,12 +1,10 @@
-package com.example.demo.training;
+package demo.training;
 
 
 import java.util.Scanner;
 
-import static org.apache.coyote.http11.Constants.a;
-
-public class Prostye_Chysla {
-    public static void OrdinaryNums(String[] args) {
+public class Task1 {
+    public static void main(String[] args) {
         int a[] = new int[10];
         for(int i=0; i<10; i++){
             Scanner in = new Scanner(System.in);

@@ -1,8 +1,8 @@
-package com.example.demo.training;
+package demo.training;
 import java.util.Scanner;
 
 public class calculator {
-    public static void calculate(){
+    public static void main(String[] args){
 
         Scanner in = new Scanner(System.in);
         Double a = in.nextDouble();

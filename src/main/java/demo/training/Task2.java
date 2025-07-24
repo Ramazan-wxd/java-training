@@ -1,9 +1,9 @@
-package com.example.demo.training;
+package demo.training;
 
 import java.util.Scanner;
 
-public class Anagram {
-    public static void pain(String[] args){
+public class Task2 {
+    public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         System.out.println("Введите первое слово:");
         String word1 = in.nextLine().toLowerCase();

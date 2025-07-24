@@ -1,6 +1,6 @@
-package com.example.demo;
+package demo;
 
-import com.example.demo.training.ArrayMax;
+import demo.training.ArrayMax;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

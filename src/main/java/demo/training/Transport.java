@@ -1,4 +1,4 @@
-package com.example.demo.training;
+package demo.training;
 
 public class Transport {
     public String type;
