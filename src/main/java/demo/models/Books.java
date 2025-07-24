@@ -7,11 +7,12 @@ import lombok.NonNull;
 
 @Data
 @Builder
+@NonNull
 public class Books {
-    @NonNull
     private int id;
-    public String mark;
-    public String model;
-    public String color;
-    private int cost;
+    public String Name;
+    public String Author;
+    public String Genre;
+    public String Publisher;
+    public int Year;
 }
