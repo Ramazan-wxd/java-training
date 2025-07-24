@@ -11,23 +11,21 @@ public class School {
 
         Teacher A = new Teacher("Nauryzbay", 30, "Programming");
         Teacher B = new Teacher("Elaman", 26, "Tennis");
-        Person[] Persons = new Person[]{a, b, A, d, c, B};
-        for (Person i : Persons) {
+        Person[] persons = new Person[]{a, b, A, d, c, B};
+        for (Person i : persons) {
             if (i.getClass() == Student.class) {
-                i.describe();
-                System.out.println("Оценка:" + ((Student) i).evaluate());
+                System.out.println(i.describe());
+                System.out.println("Оценка: " + ((Student) i).evaluate());
                 if (((Student) i).evaluate() >= 4.5) {
                     System.out.println("Отличник\n");
                 } else {
                     System.out.println("Не отличник\n");
                 }
             } else {
-                i.describe();
+                System.out.println(i.describe());
                 System.out.println(" ");
             }
         }
-
-
     }
 }
 
@@ -49,7 +47,7 @@ abstract class Person {
         return this.age;
     }
 
-    public abstract void describe();
+    public abstract String describe();
 }
 
 interface Evaluatable {
@@ -58,7 +56,7 @@ interface Evaluatable {
 }
 
 class Student extends Person implements Evaluatable {
-    double[] grade;
+    private double[] grade;
 
     public Student(String name, int age, double[] grade) {
         super(name, age);
@@ -69,8 +67,8 @@ class Student extends Person implements Evaluatable {
         return Arrays.stream(grade).average().orElse(0);
     }
 
-    public void describe() {
-        System.out.printf("Имя %s, возраст %d\n", getName(), getAge());
+    public String describe() {
+        return "Имя " + getName() + ", возраст " + getAge();
     }
 }
 
@@ -82,8 +80,8 @@ class Teacher extends Person {
         this.subject = subject;
     }
 
-    public void describe() {
-        System.out.printf("Имя %s, предмет %s\n", getName(), subject);
+    public String describe() {
+        return "Имя " + getName() + ", предмет " + subject;
     }
 
 }
