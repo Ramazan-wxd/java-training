@@ -7,11 +7,11 @@ public class School {
         Student a = new Student("Ramazan", 17, new double[]{4.9, 4.2, 4.6, 4.3});
         Student b = new Student("Miras", 18, new double[]{4.4, 4.8, 5.0, 4.0});
         Student c = new Student("Bekzhigit", 15, new double[]{4.3, 4.2, 4.7, 3.9});
-        Student d = new Student("Miras", 17, new double[]{4.0, 4.4, 4.9, 4.2});
+        Student d = new Student("Alnur", 17, new double[]{4.0, 4.4, 4.9, 4.2});
 
         Teacher A = new Teacher("Nauryzbay", 30, "Programming");
         Teacher B = new Teacher("Elaman", 26, "Tennis");
-        Person[] Persons = new Person[]{a, b, A, d, b, B};
+        Person[] Persons = new Person[]{a, b, A, d, c, B};
         for (Person i : Persons) {
             if (i.getClass() == Student.class) {
                 i.describe();
