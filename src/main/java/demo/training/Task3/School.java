@@ -13,7 +13,7 @@ public class School {
         Teacher B = new Teacher("Elaman", 26, "Tennis");
         Person[] persons = new Person[]{a, b, A, d, c, B};
         for (Person i : persons) {
-            if (i.getClass() == Student.class) {
+            if (i instanceof Student) {
                 System.out.println(i.describe());
                 System.out.println("Оценка: " + ((Student) i).evaluate());
                 if (((Student) i).evaluate() >= 4.5) {
