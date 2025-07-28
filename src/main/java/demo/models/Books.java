@@ -1,18 +1,23 @@
 package demo.models;
 
 
-import lombok.Builder;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NonNull;
+
+import java.time.LocalDate;
 
 @Data
-@Builder
-@NonNull
+@Entity
+@Table(name = "books")
 public class Books {
-    private int id;
-    public String Name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(unique = true)
+    private Long id;
+    public String NameOfBook;
     public String Author;
     public String Genre;
     public String Publisher;
-    public int Year;
+    public LocalDate Year;
+    public String Description;
 }
