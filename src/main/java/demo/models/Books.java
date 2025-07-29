@@ -3,8 +3,7 @@ package demo.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
-import java.time.LocalDate;
+import java.time.Month;
 
 @Data
 @Entity
@@ -18,6 +17,6 @@ public class Books {
     public String Author;
     public String Genre;
     public String Publisher;
-    public LocalDate Year;
+    public Month Year;
     public String Description;
 }

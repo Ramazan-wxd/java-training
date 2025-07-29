@@ -17,7 +17,9 @@ public class BooksController {
     @GetMapping("/books")
     public String CatalogBooks(Model model){
         Iterable<Books> booksList = booksRepository.findAll();
+
         model.addAttribute("booksList", booksList);
+        model.addAttribute("title", "Book catalog");
         return "CatalogBooks";
     }
 }

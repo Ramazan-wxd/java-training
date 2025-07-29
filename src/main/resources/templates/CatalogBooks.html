@@ -3,6 +3,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
     <title th:text="${title}"></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,7 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
 <header th:insert="blocks/header :: header"></header>
-<div th:each="el : ${booksList}" class="container mt-5">
+<div class="container mt-5">
     <h1 class="text-center mb-4">Catalog Books</h1>
     <div class="row">
         <div class="col-md-12">
@@ -26,6 +27,17 @@
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
+                <tbody th:each="el : ${booksList}">
+                <tr>
+                    <th scope="row" th:text="${el.id}"></th>
+                    <th scope="row" th:text="${el.NameOfBook}"></th>
+                    <th scope="row" th:text="${el.Author}"></th>
+                    <th scope="row" th:text="${el.Genre}"></th>
+                    <th scope="row" th:text="${el.Publisher}" ></th>
+                    <th scope="row" th:text="${el.Year}"></th>
+                    <th scope="row" th:text="${el.Description}"></th>
+                </tr>
+                </tbody>
             </table>
         </div>
     </div>
