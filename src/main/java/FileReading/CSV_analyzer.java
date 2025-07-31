@@ -21,29 +21,28 @@ public class CSV_analyzer {
 
         String L;
         Function<String, Optional<Order>> parseLine = line -> {
-                String[] col = line.split(",");
-                if (col.length != 3) {
-                    System.err.println("Ошибка в строке: " + line);
-                    return Optional.empty();
-                }
+            String[] col = line.split(",");
+            if (col.length != 3) {
+                System.err.println("Ошибка в строке: " + line);
+                return Optional.empty();
+            }
 
-                String idStr = col[0].trim();
-                String product = col[1].trim();
-                String quantityStr = col[2].trim();
-                if(idStr.isEmpty() || product.isEmpty() || quantityStr.isEmpty()) {
-                    System.err.println("Пустые поля в строке: " + line);
-                    return Optional.empty();
-                }
-                try {
-                    long id = Long.parseLong(idStr);
-                    int quantity = Integer.parseInt(quantityStr);
-                    return Optional.of(new Order(id, product, quantity));
-                }
-                catch (NumberFormatException e) {
-                    System.err.println("Ошибка данных в поле(не число): " + line);
-                    return Optional.empty();
-                }
-            };
+            String idStr = col[0].trim();
+            String product = col[1].trim();
+            String quantityStr = col[2].trim();
+            if (idStr.isEmpty() || product.isEmpty() || quantityStr.isEmpty()) {
+                System.err.println("Пустые поля в строке: " + line);
+                return Optional.empty();
+            }
+            try {
+                long id = Long.parseLong(idStr);
+                int quantity = Integer.parseInt(quantityStr);
+                return Optional.of(new Order(id, product, quantity));
+            } catch (NumberFormatException e) {
+                System.err.println("Ошибка данных в поле(не число): " + line);
+                return Optional.empty();
+            }
+        };
         CsvParser<Order> parser = new CsvParser<>();
         List<Order> orders = parser.parse(pathIn, parseLine);
 
@@ -54,10 +53,9 @@ public class CSV_analyzer {
         Map<String, Integer> quantitySum = Qsum.sumQuantities(orders);
 
 
-
-        try(BufferedWriter writer = Files.newBufferedWriter(pathOut)) {
+        try (BufferedWriter writer = Files.newBufferedWriter(pathOut)) {
             writer.write("Отчет по заказам:\n");
-            for(Map.Entry<String, Integer> entry : quantitySum.entrySet()){
+            for (Map.Entry<String, Integer> entry : quantitySum.entrySet()) {
                 writer.write("Товар: " + entry.getKey() + ", заказов: " + entry.getValue() + "\n");
 
             }
@@ -74,15 +72,14 @@ public class CSV_analyzer {
                     });
 
 
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.err.println("Ошибка записи в файл: " + e.getMessage());
         }
 
 
-            }
+    }
 
-        }
+}
 
 
 class Order {
@@ -109,10 +106,12 @@ class Order {
     }
 }
 
-interface Summarizable<T>{
+interface Summarizable<T> {
     Map<String, List<T>> summarize(List<T> items);
+
     Map<String, Integer> sumQuantities(List<T> items);
 }
+
 class Summarizer<T> implements Summarizable<Order> {
     public Map<String, List<Order>> summarize(List<Order> items) {
         return items.stream().collect(
@@ -120,7 +119,7 @@ class Summarizer<T> implements Summarizable<Order> {
                         Order::getProduct));
     }
 
-    public Map<String, Integer> sumQuantities(List<Order> items){
+    public Map<String, Integer> sumQuantities(List<Order> items) {
         return items.stream().collect(
                 Collectors.groupingBy(
                         Order::getProduct,
@@ -130,13 +129,10 @@ class Summarizer<T> implements Summarizable<Order> {
     }
 }
 
-class CsvParser<T>{
+class CsvParser<T> {
     public List<T> parse(Path path, Function<String, Optional<T>> lineParser) {
         try (Stream<String> lines = Files.lines(path)) {
-            return lines
-                    .map(lineParser)
-                    .flatMap(Optional::stream)
-                    .collect(Collectors.toList());
+            return lines.map(lineParser).flatMap(Optional::stream).collect(Collectors.toList());
         } catch (IOException e) {
             System.err.println("Ошибка чтения файла: " + e.getMessage());
             return List.of();
